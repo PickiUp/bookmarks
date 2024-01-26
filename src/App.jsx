@@ -7,6 +7,7 @@ import {
 import { Breadcrumb, Layout, Menu, theme, Input } from 'antd';
 import Icon from '@ant-design/icons/lib/components/Icon';
 import './App.css';
+import LinkCard from './components/YoutubeLinkCard';
 const { Search } = Input;
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -206,146 +207,9 @@ const App = () => {
                             borderRadius: borderRadiusLG,
                             color: '#000',
                         }}>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Adipisci aut reiciendis eos labore distinctio
-                            laboriosam obcaecati nihil omnis reprehenderit
-                            dignissimos, vel voluptate, fugiat inventore
-                            necessitatibus tenetur sapiente laudantium cum. Ut.
-                        </p>
+                        <div className="card-container">
+                            <LinkCard />
+                        </div>
                     </div>
                 </Content>
                 <Footer
