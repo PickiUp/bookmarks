@@ -6,8 +6,11 @@ import {
 } from '@ant-design/icons';
 import { Breadcrumb, Layout, Menu, theme, Input } from 'antd';
 import Icon from '@ant-design/icons/lib/components/Icon';
-import './App.css';
-import LinkCard from './components/YoutubeLinkCard';
+
+import '../App.scss';
+
+import { Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 const { Search } = Input;
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -84,8 +87,20 @@ const BilibiliIcon = (props) => (
     />
 );
 const items = [
-    getItem('Online Tools', '1', <ToolOutlined />),
-    getItem('Websites', '2', <DesktopOutlined />),
+    getItem(
+        'Online Tools',
+        '1',
+        <Link to={'/onlineTools'}>
+            <ToolOutlined />
+        </Link>,
+    ),
+    getItem(
+        'Websites',
+        '2',
+        <Link to={'/'}>
+            <DesktopOutlined />
+        </Link>,
+    ),
     getItem(
         'Channel',
         'sub-channel',
@@ -132,6 +147,9 @@ const items = [
         ],
     ),
 ];
+Breadcrumb.Item.__ANT_BREADCRUMB_ITEM = true;
+
+Breadcrumb.Separator.__ANT_BREADCRUMB_SEPARATOR = true;
 
 const App = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -182,35 +200,11 @@ const App = () => {
                     width: `calc(100vw - ${siderWidth}px)`,
                     marginLeft: `${siderWidth}px`,
                 }}>
-                <Header
-                    style={{
-                        padding: 0,
-                        background: colorBgContainer,
-                    }}
-                />
                 <Content
                     style={{
                         margin: '0 16px',
                     }}>
-                    <Breadcrumb
-                        style={{
-                            margin: '16px 0',
-                        }}>
-                        <Breadcrumb.Item>User</Breadcrumb.Item>
-                        <Breadcrumb.Item>Bill</Breadcrumb.Item>
-                    </Breadcrumb>
-                    <div
-                        style={{
-                            padding: 24,
-                            minHeight: 360,
-                            background: colorBgContainer,
-                            borderRadius: borderRadiusLG,
-                            color: '#000',
-                        }}>
-                        <div className="card-container">
-                            <LinkCard />
-                        </div>
-                    </div>
+                    <Outlet />
                 </Content>
                 <Footer
                     style={{
