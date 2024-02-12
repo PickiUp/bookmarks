@@ -19,7 +19,14 @@ a {
     border-radius: 10px;
     cursor: pointer;
     transition: var(--trans-normal);
-    &.noactive {
+    background-color: #fff;
+    color: #000000;
+
+    &.active {
+        color: #fff;
+        background-color: #000000;
+    }
+    &.noActive {
         opacity: 0.4;
     }
     &:hover {

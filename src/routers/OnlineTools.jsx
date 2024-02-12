@@ -47,12 +47,6 @@ function OnlineTools() {
         return onlineTools.filter((item) => item.tags.includes(tagName));
     }
 
-    function handleClick(e) {
-        setUseTag(false);
-        document.querySelectorAll('.card-tags  .tag-item').forEach((item) => {
-            item.classList.remove('noactive');
-        });
-    }
     return (
         <div className="card-area">
             <div className="card-tags">
@@ -78,7 +72,15 @@ function OnlineTools() {
                     className="tag-items"
                     style={{ transform: `translateX(-${offset}px` }}>
                     <div
-                        onClick={handleClick}
+                        onClick={(e) => {
+                            setUseTag(false);
+                            document
+                                .querySelectorAll('.card-tags  .tag-item')
+                                .forEach((item) => {
+                                    item.classList.remove('noActive');
+                                    item.classList.remove('active');
+                                });
+                        }}
                         className="tag-item"
                         style={{
                             backgroundColor: '#000',
