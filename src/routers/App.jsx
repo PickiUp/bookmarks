@@ -199,6 +199,7 @@ const App = () => {
                 style={{
                     width: `calc(100vw - ${siderWidth}px)`,
                     marginLeft: `${siderWidth}px`,
+                    overflow: 'hidden',
                 }}>
                 <Content
                     style={{

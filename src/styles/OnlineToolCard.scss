@@ -3,10 +3,60 @@
     padding: 10px 0;
 
     .card-tags {
-        display: flex;
-        gap: 1rem;
-        padding: 10px;
-        background-color: #cdcdcd;
+        position: relative;
+        background-color: #e6e6e6;
+        padding: 10px 40px;
+        overflow: hidden;
+        border-radius: 12px;
+
+        &::-webkit-scrollbar {
+            height: 0px;
+        }
+        .tag-items {
+            display: flex;
+            gap: 1rem;
+            transition: var(--trans-normal);
+        }
+        .btn-pre,
+        .btn-next {
+            position: absolute;
+            top: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 144px;
+            z-index: 1;
+            cursor: pointer;
+
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border: none;
+                outline: none;
+                transition: var(--trans-normal);
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                background-color: transparent;
+                &:hover {
+                    background-color: #efeeee;
+                }
+            }
+        }
+        .btn-pre {
+            justify-content: start;
+            left: -10px;
+            transform: translate(10px, -50%);
+            background: linear-gradient(90deg, #f4f4f4 32%, transparent 85%);
+        }
+        .btn-next {
+            justify-content: end;
+            right: -10px;
+            transform: translate(-10px, -50%);
+            background: linear-gradient(90deg, transparent 32%, #f4f4f4 85%);
+        }
     }
     .card-container {
         display: flex;
@@ -82,7 +132,7 @@
                                 text-align: center;
                                 border-radius: 14px;
                                 transition: var(--trans-normal);
-                                transform: translate(-50%, 30px);
+                                transform: translate(-50%, 50px);
                                 &:hover {
                                     background-color: #e6e3e3;
                                 }
