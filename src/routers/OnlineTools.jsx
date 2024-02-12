@@ -1,29 +1,30 @@
-import { useEffect } from 'react';
-import OnlineToolCard from '../components/OnlineToolCard';
 import '../styles/OnlineToolCard.scss';
 import Tag from '../components/Tag';
 import { onlineTools } from '../data/onlineTools';
+import CardSection from '../components/CardSection';
 function OnlineTools() {
-    function averageSpace() {
-        const container = document.querySelector('.card-container');
-        let rowItemCount = Math.floor(container.clientWidth / 316) - 1;
-        const contentWidth = rowItemCount * 316 + 300;
-        const restSpace = container.clientWidth - contentWidth;
-        const pl = restSpace / 2;
-        container.style.paddingLeft = pl + 'px';
-    }
-
-    useEffect(() => {
-        averageSpace();
-        window.addEventListener('resize', averageSpace);
-    });
-
     function getAllTags() {
         return Array.from(
             new Set(onlineTools.map((item) => item.tags)?.flat()),
         );
     }
 
+    function getAllCategoriesObj() {
+        const obj = {};
+        for (const item of onlineTools) {
+            for (const category of item.categories) {
+                if (obj[category] === undefined) {
+                    obj[category] = [item];
+                } else {
+                    obj[category].push(item);
+                }
+            }
+        }
+        return obj;
+    }
+    function getAllCategories() {
+        return Object.keys(getAllCategoriesObj());
+    }
     return (
         <div className="card-area">
             <div className="card-tags">
@@ -35,15 +36,11 @@ function OnlineTools() {
                 ))}
             </div>
             <div className="card-container">
-                {onlineTools.map((item, i) => (
-                    <OnlineToolCard
+                {Object.keys(getAllCategoriesObj()).map((key, i) => (
+                    <CardSection
                         key={i}
-                        name={item.name}
-                        imgSrc={item.gSrc}
-                        imgAlt={item.gAlt}
-                        link={item.link}
-                        desc={item.desc}
-                        tags={item.tags}
+                        sectionName={key}
+                        sectionValue={getAllCategoriesObj()[key]}
                     />
                 ))}
             </div>
