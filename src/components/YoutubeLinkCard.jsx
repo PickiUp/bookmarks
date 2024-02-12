@@ -1,6 +1,7 @@
-import '../styles/linkCard.scss';
 import { FaBell } from 'react-icons/fa';
 import { IoIosVideocam } from 'react-icons/io';
+
+import '../styles/linkCard.scss';
 function LinkCard() {
     return (
         <div className="card-wrapper">
