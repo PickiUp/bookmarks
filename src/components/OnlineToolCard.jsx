@@ -1,11 +1,6 @@
 function OnlineToolCard({ imgSrc, imgAlt, link, name, desc }) {
-    function randomBg() {
-        return '#' + Math.floor(Math.random() * 16777215).toString(16);
-    }
     return (
-        <div
-            className={`card-item`}
-            style={{ backgroundColor: `${randomBg()}` }}>
+        <div className={`card-item`}>
             <div className="card">
                 <div className="card-present">
                     <div className="card-thumbnail">
