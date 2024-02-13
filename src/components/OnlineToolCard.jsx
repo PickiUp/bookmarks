@@ -1,4 +1,4 @@
-function OnlineToolCard({ imgSrc, imgAlt, link, name, desc }) {
+function OnlineToolCard({ src, link, name, desc }) {
     return (
         <div className={`card-item`}>
             <div className="card">
@@ -6,20 +6,28 @@ function OnlineToolCard({ imgSrc, imgAlt, link, name, desc }) {
                     <div className="card-thumbnail">
                         <img
                             src={
-                                imgSrc
-                                    ? imgSrc
+                                src
+                                    ? src
                                     : 'https://s1.wzznft.com/i/2024/02/13/qz6f7u.png'
                             }
-                            alt={imgAlt ? imgAlt : name}
-                            title={imgAlt ? imgAlt : name}
+                            alt={name}
+                            title={name}
                         />
                     </div>
                     <div className="card-link">
-                        <a href={link}>Visit</a>
+                        <a
+                            href={link}
+                            target="_blank">
+                            Visit
+                        </a>
                     </div>
                 </div>
                 <div className="card-info">
-                    <h3>{name}</h3>
+                    <a
+                        href={link}
+                        target="_blank">
+                        <h3>{name}</h3>
+                    </a>
                     <p title={desc}>
                         {desc
                             ? desc
