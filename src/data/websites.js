@@ -1,0 +1,163 @@
+export const categories = {
+    c1: {
+        name: '学习网站',
+        priority: 2,
+    },
+    c2: {
+        name: '资源网站',
+        priority: 1,
+    },
+    c4: {
+        name: '教程网站',
+        priority: 2,
+    },
+    c5: {
+        name: '问答网站',
+        priority: 2,
+    },
+    c6: {
+        name: '综合网站',
+        priority: 2,
+    },
+    c7: {
+        name: '图片素材',
+        priority: 2,
+    },
+    c8: {
+        name: '图标资源',
+        priority: 2,
+    },
+    c9: {
+        name: '英语网站',
+        priority: 2,
+    },
+    cz: {
+        name: '其他',
+        priority: 999,
+    },
+};
+const tags = {
+    t1: '问答',
+    t4: '英语',
+    t5: '图标',
+    t6: 'SVG',
+    t7: '图片',
+    t8: 'CSS',
+    t9: 'Web前端',
+};
+export const websites = [
+    {
+        name: '知乎',
+        src: 'https://static.zhihu.com/heifetz/favicon.ico',
+        link: 'https://www.zhihu.com/search',
+        desc: '知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台,渐变色生成',
+        tags: [tags.t1],
+        categories: [categories.c1.name, categories.c5.name],
+    },
+    {
+        name: 'ell.stackexchange',
+        src: '',
+        link: 'https://ell.stackexchange.com/',
+        desc: 'stackexchange 子站，专门用于英语学习。注册用户可以进行提问，交流,渐变色生成',
+        tags: [tags.t1],
+        categories: [categories.c5.name],
+    },
+    {
+        name: 'dirask',
+        src: 'https://dirask.com/resources/gfx/logo/favicon/da_logo_v6-48x48.png?v=22',
+        link: 'https://dirask.com/',
+        desc: '博客类型的社区网站，可注册登录，有 提问板块，还有 wiki板块可进行查询',
+        tags: [tags.t1],
+        categories: [categories.c5.name],
+    },
+    // 图标资源
+    {
+        name: 'icons8',
+        src: 'https://maxst.icons8.com/vue-static/landings/primary-landings/favs/icons8_fav_32%C3%9732.png',
+        link: 'https://icons8.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5],
+        categories: [categories.c8.name],
+    },
+    {
+        name: 'flaticon',
+        src: 'https://media.flaticon.com/dist/min/img/favicon.ico',
+        link: 'https://www.flaticon.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5],
+        categories: [categories.c8.name],
+    },
+    {
+        name: 'iconscout',
+        src: '',
+        link: 'https://iconscout.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5],
+        categories: [categories.c8.name],
+    },
+    {
+        name: 'iconfinder',
+        src: 'https://www.iconfinder.com/static/img/favicons/favicon-32x32.png?87b2a5c3aa',
+        link: 'https://www.iconfinder.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5],
+        categories: [categories.c8.name],
+    },
+    {
+        name: 'vectorstock',
+        src: '',
+        link: 'https://www.vectorstock.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5],
+        categories: [categories.c8.name],
+    },
+    {
+        name: 'svgrepo',
+        src: 'https://www.svgrepo.com/social.png',
+        link: 'https://www.svgrepo.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5, tags.t6],
+        categories: [categories.c8.name],
+    },
+    {
+        name: 'iconduck',
+        src: '',
+        link: 'https://iconduck.com/',
+        desc: '图标资源网站',
+        tags: [tags.t5],
+        categories: [categories.c8.name],
+    },
+    // 图片资源
+    {
+        name: 'pexels',
+        src: 'https://www.pexels.com/assets/static/images/meta/favicon.ico',
+        link: 'https://www.pexels.com/zh-cn/',
+        desc: '图片资源素材网站',
+        tags: [tags.t7],
+        categories: [categories.c7.name],
+    },
+    {
+        name: 'unsplash',
+        src: 'https://unsplash.com/favicon-32x32.png',
+        link: 'https://unsplash.com/',
+        desc: '美丽、免费的图像和照片，您可以下载并用于任何项目。比任何免版税或库存照片都好。',
+        tags: [tags.t7],
+        categories: [categories.c7.name],
+    },
+    {
+        name: 'pixabay',
+        src: 'https://pixabay.com/favicon-32x32.png',
+        link: 'https://pixabay.com/',
+        desc: '图片资源素材网站',
+        tags: [tags.t7],
+        categories: [categories.c7.name],
+    },
+    {
+        name: 'css-tricks',
+        src: 'https://css-tricks.com/favicon.ico',
+        link: 'https://css-tricks.com/',
+        desc: '关于CSS，HTML，JavaScript的每日文章，和有关网页设计，开发的所有东西。',
+        tags: [tags.t8, tags.t9],
+        categories: [categories.c1.name],
+    },
+];

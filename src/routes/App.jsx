@@ -97,7 +97,7 @@ const items = [
     getItem(
         'Websites',
         '2',
-        <Link to={'/'}>
+        <Link to={'/websites'}>
             <DesktopOutlined />
         </Link>,
     ),

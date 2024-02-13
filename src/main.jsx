@@ -5,6 +5,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import App from './routes/App';
 import ErrorPage from './pages/errorPage';
 import OnlineTools from './routes/OnlineTools';
+import Websites from './routes/Websites';
 
 const router = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
             {
                 path: 'onlineTools',
                 element: <OnlineTools />,
+            },
+            {
+                path: 'websites',
+                element: <Websites />,
             },
         ],
     },
