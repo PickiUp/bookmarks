@@ -1,4 +1,4 @@
-import OnlineToolCard from './OnlineToolCard';
+import Card from './Card';
 
 function CardSection({ sectionName, sectionValue }) {
     return (
@@ -6,7 +6,7 @@ function CardSection({ sectionName, sectionValue }) {
             <div className="card-header">{sectionName}</div>
             <div className="card-body">
                 {sectionValue.map((data, i) => (
-                    <OnlineToolCard
+                    <Card
                         key={i}
                         {...data}
                     />

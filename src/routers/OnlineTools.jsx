@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { AiOutlineDoubleLeft } from 'react-icons/ai';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 
-import '../styles/OnlineToolCard.scss';
+import '../styles/Card.scss';
 import Tag from '../components/Tag';
 import { onlineTools, categories } from '../data/onlineTools';
 import CardSection from '../components/CardSection';

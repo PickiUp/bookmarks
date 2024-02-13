@@ -1,4 +1,4 @@
-function OnlineToolCard({ src, link, name, desc }) {
+function Card({ src, link, name, desc }) {
     return (
         <div className={`card-item`}>
             <div className="card">
@@ -39,4 +39,4 @@ function OnlineToolCard({ src, link, name, desc }) {
     );
 }
 
-export default OnlineToolCard;
+export default Card;
