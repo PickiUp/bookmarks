@@ -21,6 +21,8 @@ a {
     transition: var(--trans-normal);
     background-color: #fff;
     color: #000000;
+    /* 将tag内容始终在一行，不换行 */
+    white-space: nowrap;
 
     &.active {
         color: #fff;
