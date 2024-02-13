@@ -4,9 +4,8 @@ import { AiOutlineDoubleRight } from 'react-icons/ai';
 
 import '../styles/OnlineToolCard.scss';
 import Tag from '../components/Tag';
-import { onlineTools } from '../data/onlineTools';
+import { onlineTools, categories } from '../data/onlineTools';
 import CardSection from '../components/CardSection';
-
 const TRANSLATE_AMOUNT = 200;
 
 function OnlineTools() {
@@ -39,12 +38,24 @@ function OnlineTools() {
         }
         return obj;
     }
-    function getAllCategories() {
-        return Object.keys(getAllCategoriesObj());
-    }
 
     function filterByTagName(tagName) {
         return onlineTools.filter((item) => item.tags.includes(tagName));
+    }
+
+    function sortByPriority(a, b) {
+        let aPriority, bPriority;
+        for (const category in categories) {
+            if (categories[category].name === a) {
+                aPriority = categories[category].priority;
+            }
+            if (categories[category].name === b) {
+                bPriority = categories[category].priority;
+            }
+        }
+        if (aPriority > bPriority) return 1;
+        if (aPriority < bPriority) return -1;
+        return 0;
     }
 
     return (
@@ -124,13 +135,15 @@ function OnlineTools() {
                 )}
             </div>
             <div className="card-container">
-                {Object.keys(getAllCategoriesObj()).map((key, i) => (
-                    <CardSection
-                        key={i}
-                        sectionName={key}
-                        sectionValue={getAllCategoriesObj()[key]}
-                    />
-                ))}
+                {Object.keys(getAllCategoriesObj())
+                    .sort(sortByPriority)
+                    .map((key, i) => (
+                        <CardSection
+                            key={i}
+                            sectionName={key}
+                            sectionValue={getAllCategoriesObj()[key]}
+                        />
+                    ))}
             </div>
         </div>
     );
