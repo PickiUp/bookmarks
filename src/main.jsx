@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
-import App from './routers/App';
+import App from './routes/App';
 import ErrorPage from './pages/errorPage';
-import OnlineTools from './routers/OnlineTools';
+import OnlineTools from './routes/OnlineTools';
 
 const router = createBrowserRouter([
     {
