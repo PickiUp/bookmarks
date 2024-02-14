@@ -68,14 +68,32 @@ const tags = {
     t13: '白板',
     t14: '英语',
     t15: '阅后即焚',
+    t16: '搜索',
 };
 export const onlineTools = [
+    // CSS工具
     {
         name: 'cssmatic',
         src: 'https://www.cssmatic.com/img/cssmatic-logo.svg',
         link: 'https://www.cssmatic.com/box-shadow?ref=kolosek.com',
         desc: '一个CSS工具网站，提供多种实用效果代码生成，如阴影,渐变色生成',
-        tags: [tags.t1],
+        tags: [tags.t1, tags.t2],
+        categories: [categories.c2.name, categories.c1.name],
+    },
+    {
+        name: 'css-scrollbar-generator',
+        src: '',
+        link: 'https://www.cssportal.com/css-scrollbar-generator/',
+        desc: 'CSS滚动条样式生成器',
+        tags: [tags.t1, tags.t2],
+        categories: [categories.c2.name, categories.c1.name],
+    },
+    {
+        name: 'CSS-滤镜模糊效果生成器',
+        src: '',
+        link: 'https://front-end-tools.com/en/generatebackdropfilter/',
+        desc: '它是一款滤镜工具，可让您轻松地将效果应用于背面的元素。您可以指定多种模糊、亮度、对比度、灰度、色调旋转、反转、饱和度、棕褐色等。以及磨砂玻璃状设计。',
+        tags: [tags.t1, tags.t2],
         categories: [categories.c2.name, categories.c1.name],
     },
     {
@@ -386,7 +404,7 @@ export const onlineTools = [
     },
     {
         name: 'URL编码/解码',
-        src: 'https://csstools.chinaz.com/tools/images/public/logos/logo-index.png',
+        src: '',
         link: 'https://tool.chinaz.com/tools/urlencode.aspx',
         desc: '可以将网址含有特殊符号，中文导致的乱码 url 进行还原得可理解的 url',
         tags: [],
@@ -403,7 +421,7 @@ export const onlineTools = [
     // 文本/文件传输
     {
         name: 'easychuan-轻松传',
-        src: 'https://static.easychuan.cn/favicon.png',
+        src: 'https://img2.imgtp.com/2024/02/14/EWA4jgum.png',
         link: 'https://easychuan.cn/',
         desc: '只需打开网页，手机、电脑、平板... 跨设备快速传文件、传文本、传屏幕、传实时视频，64T超大文件传输，无限速无扫描。',
         tags: [],
@@ -419,7 +437,7 @@ export const onlineTools = [
     },
     {
         name: 'privatebin.net',
-        src: 'https://privatebin.net/img/favicon-32x32.png',
+        src: '',
         link: 'https://privatebin.net/',
         desc: '',
         tags: [tags.t15],
@@ -427,7 +445,7 @@ export const onlineTools = [
     },
     {
         name: 'sesme.co',
-        src: 'https://sesme.co/favicon.ico',
+        src: '',
         link: 'https://sesme.co/',
         desc: '自动销毁消息的阅后即焚加解密在线工具',
         tags: [tags.t15],
@@ -440,5 +458,21 @@ export const onlineTools = [
         desc: '阅后即焚内容信息被读取一次后即自动删除',
         tags: [tags.t15],
         categories: [categories.c13.name],
+    },
+    {
+        name: 'mutiSearch',
+        src: 'https://pickiup.github.io/util-tools/favicon.ico',
+        link: 'https://pickiup.github.io/util-tools/#/mutiSearch',
+        desc: '多分类聚合搜索',
+        tags: [tags.t16],
+        categories: [categories.c1.name, categories.c6.name],
+    },
+    {
+        name: 'can-you-search',
+        src: 'https://can-you-search.vercel.app/favicon.svg',
+        link: 'https://can-you-search.vercel.app/',
+        desc: '多分类聚合搜索',
+        tags: [tags.t16],
+        categories: [categories.c1.name, categories.c6.name],
     },
 ];
