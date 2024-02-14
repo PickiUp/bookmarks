@@ -208,6 +208,9 @@ function Websites() {
                             ))}
                     </ul>
                 </div>
+                {Object.keys(getAllCategoriesObj()).length === 0
+                    ? 'No results find'
+                    : Object.keys(getAllCategoriesObj()).length}
             </div>
         </div>
     );
