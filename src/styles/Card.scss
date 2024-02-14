@@ -173,15 +173,54 @@
         position: fixed;
         right: 0px;
         top: 100px;
-        padding: 6px;
+        padding: 30px 0 30px;
         background-color: rgb(235 235 235 / 46%);
         backdrop-filter: blur(5px);
         max-width: 120px;
-
+        height: 600px;
         ul {
             display: flex;
             flex-direction: column;
             gap: 2px;
+            overflow: auto;
+            height: 100%;
+
+            /* Firefox (uncomment to work in Firefox, although other properties will not work!)  */
+            /** {
+            scrollbar-width: thin;
+            scrollbar-color: #60656F #C6CFD1;
+            }*/
+
+            /* Chrome, Edge and Safari */
+            &::-webkit-scrollbar {
+                height: 0px;
+                width: 0px;
+            }
+            &::-webkit-scrollbar-track {
+                border-radius: 3px;
+                background-color: #c6cfd1;
+            }
+
+            &::-webkit-scrollbar-track:hover {
+                background-color: #b8c0c2;
+            }
+
+            &::-webkit-scrollbar-track:active {
+                background-color: #b8c0c2;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                border-radius: 11px;
+                background-color: #60656f;
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #374242;
+            }
+
+            &::-webkit-scrollbar-thumb:active {
+                background-color: #8a7cd0;
+            }
             li {
                 font-weight: 700;
                 list-style: none;
