@@ -53,8 +53,8 @@ function OnlineTools() {
                 bPriority = categories[category].priority;
             }
         }
-        if (aPriority > bPriority) return 1;
-        if (aPriority < bPriority) return -1;
+        if (aPriority < bPriority) return 1;
+        if (aPriority > bPriority) return -1;
         return 0;
     }
 
