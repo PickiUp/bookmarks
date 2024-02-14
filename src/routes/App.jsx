@@ -11,6 +11,7 @@ import '../App.scss';
 
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 const { Search } = Input;
 const { Header, Content, Footer, Sider } = Layout;
 function getItem(label, key, icon, children) {
@@ -154,14 +155,91 @@ Breadcrumb.Separator.__ANT_BREADCRUMB_SEPARATOR = true;
 const App = () => {
     const [collapsed, setCollapsed] = useState(false);
     const [siderWidth, setSiderWidth] = useState('200');
+
+    const [value, setValue] = useState('');
+
     const {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
-    const onSearch = (value, _e, info) => console.log(info?.source, value);
+    const onSearch = (value) => {
+        if (value.trim() === '') {
+            setValue(value);
+        } else {
+            setValue(value);
+        }
+    };
     function handleCollapse(value) {
         setCollapsed(value);
         value ? setSiderWidth('80') : setSiderWidth('200');
     }
+
+    useEffect(() => {
+        function highlightKeyword(keyword) {
+            let keywordArr = [];
+            if (keyword.includes(' ')) {
+                keywordArr = keyword.split(' ');
+                for (const keyword of keywordArr) {
+                    highlight(keyword);
+                }
+            } else {
+                highlight(keyword);
+            }
+        }
+        function replaceTextWithHighlightText(element, replaceText) {
+            if (element.innerHTML.match(new RegExp(replaceText, 'gi'))) {
+                if (
+                    !element.innerHTML.match(
+                        /<span style="background-color:yellow">.*<\/span>/,
+                    )
+                ) {
+                    element.innerHTML = element.innerHTML.replaceAll(
+                        new RegExp(replaceText, 'gi'),
+                        `<span style="background-color:yellow">${replaceText}</span>`,
+                    );
+                }
+            }
+            return;
+        }
+        function highlight(keyword) {
+            const cardSections = document.querySelectorAll('.card-section');
+            cardSections.forEach((section) => {
+                const cardHeader = section.querySelector('.card-header');
+                replaceTextWithHighlightText(cardHeader, keyword);
+                const cardItems = section.querySelectorAll('.card-item');
+                cardItems.forEach((item) => {
+                    const title = item.querySelector('.card-info a h3');
+                    replaceTextWithHighlightText(title, keyword);
+                    const desc = item.querySelector('.card-info p');
+                    replaceTextWithHighlightText(desc, keyword);
+                });
+            });
+        }
+        function clearExistedHighlightText() {
+            const regex = /(<span style="background-color:yellow">|<\/span>)/gi;
+            const cardSections = document.querySelectorAll('.card-section');
+            cardSections.forEach((section) => {
+                const cardHeader = section.querySelector('.card-header');
+                clearSpan(cardHeader);
+
+                const cardItems = section.querySelectorAll('.card-item');
+                cardItems.forEach((item) => {
+                    const title = item.querySelector('.card-info a h3');
+                    clearSpan(title);
+                    const desc = item.querySelector('.card-info p');
+                    clearSpan(desc);
+                });
+            });
+
+            function clearSpan(element) {
+                if (element.innerHTML.match(regex)) {
+                    element.innerHTML = element.innerHTML.replaceAll(regex, '');
+                }
+            }
+        }
+        clearExistedHighlightText();
+        highlightKeyword(value);
+    }, [value]);
+
     return (
         <Layout
             style={{
