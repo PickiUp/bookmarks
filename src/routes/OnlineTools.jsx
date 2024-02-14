@@ -6,6 +6,7 @@ import '../styles/Card.scss';
 import Tag from '../components/Tag';
 import { onlineTools, categories } from '../data/onlineTools';
 import CardSection from '../components/CardSection';
+import { useOutletContext } from 'react-router-dom';
 const TRANSLATE_AMOUNT = 200;
 
 function OnlineTools() {
@@ -14,6 +15,7 @@ function OnlineTools() {
     const [lastClickTag, setLastClickTag] = useState('');
     const [offset, setOffset] = useState(0);
     const [isRightVisiable, setIsRightVisiable] = useState(true);
+    const [value] = useOutletContext();
 
     window.addEventListener('scroll', () => {
         const cardSections = document.querySelectorAll('.card-section');
@@ -36,7 +38,7 @@ function OnlineTools() {
     });
     useEffect(() => {
         getAllCategoriesObj();
-    }, [useTag]);
+    }, [useTag, value]);
 
     function getAllTags() {
         return Array.from(
@@ -46,7 +48,9 @@ function OnlineTools() {
 
     function getAllCategoriesObj() {
         const obj = {};
-        for (const item of useTag ? filterByTagName(tagName) : onlineTools) {
+        for (const item of useTag
+            ? filterByTagName(tagName)
+            : filterByKeyWords(value)) {
             for (const category of item.categories) {
                 if (obj[category] === undefined) {
                     obj[category] = [item];
@@ -59,9 +63,21 @@ function OnlineTools() {
     }
 
     function filterByTagName(tagName) {
-        return onlineTools.filter((item) => item.tags.includes(tagName));
+        return filterByKeyWords(value).filter((item) =>
+            item.tags.includes(tagName),
+        );
     }
-
+    function filterByKeyWords(keywords) {
+        return onlineTools.filter((item) => {
+            return (
+                matchKeywords(item.name, keywords) ||
+                matchKeywords(item.desc, keywords)
+            );
+        });
+    }
+    function matchKeywords(text, keywords) {
+        return text.match(new RegExp(keywords, 'gi'));
+    }
     function sortByPriority(a, b) {
         let aPriority, bPriority;
         for (const category in categories) {

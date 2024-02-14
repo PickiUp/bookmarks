@@ -158,15 +158,8 @@ const App = () => {
 
     const [value, setValue] = useState('');
 
-    const {
-        token: { colorBgContainer, borderRadiusLG },
-    } = theme.useToken();
     const onSearch = (value) => {
-        if (value.trim() === '') {
-            setValue(value);
-        } else {
-            setValue(value);
-        }
+        setValue(value);
     };
     function handleCollapse(value) {
         setCollapsed(value);
@@ -285,7 +278,7 @@ const App = () => {
                     style={{
                         margin: '0 16px',
                     }}>
-                    <Outlet />
+                    <Outlet context={[value]} />
                 </Content>
                 <Footer
                     style={{

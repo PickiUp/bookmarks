@@ -6,6 +6,7 @@ import '../styles/Card.scss';
 import Tag from '../components/Tag';
 import { websites, categories } from '../data/websites';
 import CardSection from '../components/CardSection';
+import { useOutletContext } from 'react-router-dom';
 
 function Websites() {
     const [useTag, setUseTag] = useState(false);
@@ -13,6 +14,7 @@ function Websites() {
     const [lastClickTag, setLastClickTag] = useState('');
     const [offset, setOffset] = useState(0);
     const [isRightVisiable, setIsRightVisiable] = useState(true);
+    const [value] = useOutletContext();
 
     window.addEventListener('scroll', () => {
         const cardSections = document.querySelectorAll('.card-section');
@@ -36,7 +38,7 @@ function Websites() {
 
     useEffect(() => {
         getAllCategoriesObj();
-    }, [useTag]);
+    }, [useTag, value]);
 
     function getAllTags() {
         return Array.from(new Set(websites.map((item) => item.tags)?.flat()));
@@ -44,7 +46,9 @@ function Websites() {
 
     function getAllCategoriesObj() {
         const obj = {};
-        for (const item of useTag ? filterByTagName(tagName) : websites) {
+        for (const item of useTag
+            ? filterByTagName(tagName)
+            : filterByKeyWords(value)) {
             for (const category of item.categories) {
                 if (obj[category] === undefined) {
                     obj[category] = [item];
@@ -57,7 +61,20 @@ function Websites() {
     }
 
     function filterByTagName(tagName) {
-        return websites.filter((item) => item.tags.includes(tagName));
+        return filterByKeyWords(value).filter((item) =>
+            item.tags.includes(tagName),
+        );
+    }
+    function filterByKeyWords(keywords) {
+        return websites.filter((item) => {
+            return (
+                matchKeywords(item.name, keywords) ||
+                matchKeywords(item.desc, keywords)
+            );
+        });
+    }
+    function matchKeywords(text, keywords) {
+        return text.match(new RegExp(keywords, 'gi'));
     }
 
     function sortByPriority(a, b) {
