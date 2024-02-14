@@ -175,6 +175,7 @@ const App = () => {
                     left: 0,
                     top: 0,
                     bottom: 0,
+                    transition: 'all 0.2s',
                 }}
                 collapsible
                 collapsed={collapsed}
@@ -200,6 +201,7 @@ const App = () => {
                     width: `calc(100vw - ${siderWidth}px)`,
                     marginLeft: `${siderWidth}px`,
                     overflow: 'hidden',
+                    transition: 'all 0.2s',
                 }}>
                 <Content
                     style={{
