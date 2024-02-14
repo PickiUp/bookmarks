@@ -14,6 +14,26 @@ function Websites() {
     const [offset, setOffset] = useState(0);
     const [isRightVisiable, setIsRightVisiable] = useState(true);
 
+    window.addEventListener('scroll', () => {
+        const cardSections = document.querySelectorAll('.card-section');
+        cardSections.forEach((cardSection) => {
+            if (
+                cardSection.getBoundingClientRect().top <= 52 &&
+                cardSection.getBoundingClientRect().top > 0
+            ) {
+                const categoryText =
+                    cardSection.querySelector('.card-header').textContent;
+                const allLi = document.querySelectorAll('.card-container li');
+                allLi.forEach((li) => {
+                    li.classList.remove('active');
+                    if (li.textContent === categoryText) {
+                        li.classList.add('active');
+                    }
+                });
+            }
+        });
+    });
+
     useEffect(() => {
         getAllCategoriesObj();
     }, [useTag]);
@@ -141,6 +161,36 @@ function Websites() {
                             sectionValue={getAllCategoriesObj()[key]}
                         />
                     ))}
+                <div className="card-toc">
+                    <ul>
+                        {Object.keys(getAllCategoriesObj())
+                            .sort(sortByPriority)
+                            .map((name, i) => (
+                                <li
+                                    key={i}
+                                    onClick={(e) => {
+                                        const target = e.target.textContent;
+                                        const cardSections =
+                                            document.querySelectorAll(
+                                                '.card-section',
+                                            );
+                                        cardSections.forEach((section) => {
+                                            const categoryText =
+                                                section.querySelector(
+                                                    '.card-header',
+                                                ).textContent;
+                                            if (categoryText === target) {
+                                                section.scrollIntoView({
+                                                    behavior: 'smooth',
+                                                });
+                                            }
+                                        });
+                                    }}>
+                                    {name}
+                                </li>
+                            ))}
+                    </ul>
+                </div>
             </div>
         </div>
     );
